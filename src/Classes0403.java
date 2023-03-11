@@ -1,10 +1,12 @@
 import java.text.DecimalFormat;
 import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Classes0403 {
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
-    public static void main(String[] args) {exercise_02();}
+    public static void main(String[] args) {exercise_07();}
 
     public static void exercise_01(Integer a, Integer b) {
         System.out.println((a*b));
@@ -108,12 +110,13 @@ public class Classes0403 {
         System.out.println(String.format("%s, %s, %s", c, b, a));
     }
 
-    public static void exercise_07() {
+    public static void exercise_07() { // n musi być większe lub równe nic nie było w poleceniu o walidacji, ale miałem się zastanowić
         int[] array1 = new int[10];
         int[] array2 = new int[10];
         Scanner scanner = new Scanner(System.in);
         int n = Integer.parseInt(scanner.next());
         int m = Integer.parseInt(scanner.next());
+
         if (n < 0 || m < 0) {
             System.out.println("BLAD");
             return;
@@ -128,10 +131,17 @@ public class Classes0403 {
             array2[j] = num;
         }
 
-        int sum1 = Arrays.stream(array1).sum();
+        scanner.close();
+
+
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += array1[i] * array2[i];
+        }
         int sum2 = Arrays.stream(array2).sum();
 
-        scanner.close();
+        System.out.println(sum);
+
     }
 
     public static void piramide_up(int a) {
