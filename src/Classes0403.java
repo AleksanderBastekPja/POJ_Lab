@@ -1,14 +1,10 @@
-import java.io.CharArrayReader;
 import java.text.DecimalFormat;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
-public class Main {
+public class Classes0403 {
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
-    public static void main(String[] args) {}
+    public static void main(String[] args) {exercise_02();}
 
     public static void exercise_01(Integer a, Integer b) {
         System.out.println((a*b));
