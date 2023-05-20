@@ -1,0 +1,103 @@
+import com.sun.source.tree.Tree;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        zad6_1();
+        zad6_2();
+        zad6_3();
+        zad6_4();
+    }
+
+    public static void zad6_1() {
+        System.out.println("zad6_1\n");
+        LinkedList<String> colors = new LinkedList<String>();
+        colors.add("Red");
+        colors.add("Green");
+        colors.add("Black");
+        colors.add("Pink");
+        colors.add("orange");
+
+        System.out.println(colors);
+        System.out.println(colors.remove(0));
+        System.out.println(colors.remove(3));
+        System.out.println(colors);
+    }
+
+    public static void zad6_2() {
+        System.out.println("zad6_2\n");
+        HashSet<String> myValues = new HashSet<String>();
+        myValues.add("stone");
+        myValues.add("tree");
+        myValues.add("home");
+        myValues.add("apple");
+        myValues.add("cloud");
+
+        System.out.println(myValues);
+
+        ArrayList<String> arrayValues = new ArrayList<String>(myValues);
+        System.out.println(arrayValues);
+    }
+
+    public static void zad6_3() {
+        System.out.println("zad6_3\n");
+        TreeSet<String> tree1 = new TreeSet<>();
+        tree1.add("Red");
+        tree1.add("Green");
+        tree1.add("Black");
+        tree1.add("Pink");
+        tree1.add("orange");
+
+        TreeSet<String> tree2 = new TreeSet<>();
+        tree2.add("purple");
+        tree2.add("navy");
+        tree2.add("grey");
+
+        System.out.println("colors1:");
+        tree1.forEach(System.out::println);
+        System.out.println();
+        System.out.println("colors2:");
+        tree2.forEach(System.out::println);
+        tree1.addAll(tree2);
+        System.out.println(tree1);
+        System.out.println("tree1 descending: ");
+        tree1.descendingIterator().forEachRemaining(System.out::println);
+        System.out.printf("First element: %s%n", tree1.first());
+        System.out.printf("Last element: %s%n", tree1.last());
+
+        TreeSet<String> tree3 = (TreeSet<String>) tree1.clone();
+        System.out.printf("Amount of elements: %s%n", (long) tree3.size());
+
+        tree1.forEach(it -> System.out.printf("%s is exist in two %b%n",it, tree2.contains(it)));
+    }
+
+    public static void zad6_4() {
+        System.out.println("\nzad6_4");
+        try {
+            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+            String n = bufferRead.readLine();
+            HashMap<Integer, String> months = new HashMap<>();
+            months.put(1, "Styczeń");
+            months.put(2, "Luty");
+            months.put(3, "Marzec");
+            months.put(4, "Kwiecień");
+            months.put(5, "Maj");
+            months.put(6, "Czerwiec");
+            months.put(7, "Lipiec");
+            months.put(8, "Sierpień");
+            months.put(9, "Wrzesień");
+            months.put(10, "Padziernik");
+            months.put(11, "Listopad");
+            months.put(12, "Grudzień");
+
+            System.out.println(months.get(Integer.valueOf(n)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
